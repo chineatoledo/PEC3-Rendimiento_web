@@ -1,0 +1,131 @@
+/***************************************/
+/*FUENTES*/
+
+@font-face {
+  font-family: 'M4';
+  src: url('Montserrat/static/Montserrat-Regular.woff2') format('woff2'),
+    url('Montserrat/static/Montserrat-Regular.woff') format('woff');
+}
+  
+@font-face {
+  font-family: 'M6';
+  src: url('Montserrat/static/Montserrat-SemiBold.woff2') format('woff2'),
+    url('Montserrat/static/Montserrat-SemiBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'M7';
+  src: url('Montserrat/static/Montserrat-Bold.woff2') format('woff2'),
+    url('Montserrat/static/Montserrat-Bold.woff') format('woff');
+}
+
+/***************************************/
+
+body {
+  color: var(--text-color-dark);
+}
+
+h1 {
+  font-family: 'M7', Arial, Helvetica, sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 6px;
+  color: var(--text-color-contrast);
+}
+
+.nav-title h1 {
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+  color: var(--text-color-dark);
+}
+
+
+h2, h2 a {
+  font-family: 'M6', Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  color: var(--text-color-dark);
+  margin: 0.5rem auto;
+}
+
+p, li a {
+  text-align: justify;
+  font-family: 'M4', Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  color: var(--text-color-dark);
+  margin: 1rem 0;
+  line-height: 1.6;
+  width: 100%;
+}
+
+section > p {
+  color: start;
+}
+
+li a {
+  font-family: 'M6', Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+li a i {
+  font-family: 'M4', Arial, Helvetica, sans-serif;
+}
+
+.nav-links ul li a {
+  font-family: 'M7', Arial, sans-serif;
+  color: var(--text-color-dark);
+  font-size: 1.1rem;
+}
+
+.nav-links ul li a:hover {
+  opacity: 50%;
+  transition: 0.2s;
+}
+
+#active {
+  opacity: 60%;
+}
+
+.list-primary {
+  font-family: 'M7', Arial, sans-serif;
+  color: var(--text-color-contrast);
+}
+
+.footer-links a {
+  font-family: 'M4', Arial, sans-serif;
+  color: var(--text-color-contrast);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.footer-description p {
+  text-align: left;
+}
+
+hr {
+ width: 75%;
+ color: grey;
+ margin: 0.6rem auto;
+}
+
+a:hover {
+  opacity: 0.6;
+  transition: 0.2s;
+}
+
+footer p {
+  color: var(--text-color-contrast);
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+footer p a {
+  font-family: 'M6', Arial, Helvetica, sans-serif;
+  color: var(--text-color-contrast);
+}
+
+.container h2 a {
+  color: var(--text-color-dark);
+}
