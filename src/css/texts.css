@@ -5,18 +5,21 @@
   font-family: 'M4';
   src: url('Montserrat/static/Montserrat-Regular.woff2') format('woff2'),
     url('Montserrat/static/Montserrat-Regular.woff') format('woff');
+    font-display: swap;
 }
   
 @font-face {
   font-family: 'M6';
   src: url('Montserrat/static/Montserrat-SemiBold.woff2') format('woff2'),
     url('Montserrat/static/Montserrat-SemiBold.woff') format('woff');
+    font-display: swap;
 }
 
 @font-face {
   font-family: 'M7';
   src: url('Montserrat/static/Montserrat-Bold.woff2') format('woff2'),
     url('Montserrat/static/Montserrat-Bold.woff') format('woff');
+    font-display: swap;
 }
 
 /***************************************/
@@ -81,7 +84,7 @@ li a i {
 }
 
 #active {
-  opacity: 60%;
+  border-bottom: solid;
 }
 
 .list-primary {
