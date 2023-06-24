@@ -1,18 +1,3 @@
-// la función devuelve una promesa que se resolverá o rechazará
-// dependiendo de la carga del script
-const loadScript = (src) => new Promise((resolve, reject) => {
-  // creamos un elemento script en el dom
-  let script = document.createElement('script')
-  // añadimos la fuente src al script del archivo 
-  script.src = src
-  // usamos los eventos nativos del script para resolver
-  // o rechazar la promesa dependiendo de si se ha cargado
-  script.onload = resolve
-  script.onerror = reject
-  // añadimos el script al documento
-  document.head.appendChild(script)
-})
-
 document.addEventListener("DOMContentLoaded", function () {
   const carousel = document.querySelector(".carousel");
   if (carousel) {
@@ -45,55 +30,58 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
-    // Aplicar lazy loading a las imágenes
-    function lazyLoadImages() {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const img = entry.target;
-            const src = img.getAttribute("data-src");
-            if (src) {
-              img.src = src;
-              observer.unobserve(img);
-            }
-          }
-        });
-      });
-
-      imgs.forEach((img) => {
-        observer.observe(img);
-      });
-    }
-
     setTimeout(preloadImages, 0); // Cargar imágenes en segundo plano al iniciar
-
-    setTimeout(lazyLoadImages, 500); // Aplicar lazy loading después de un pequeño retraso
 
     setInterval(changeImg, intervalTime);
   }
 });
 
 
-// Inicializa video "placeholders"
-var videoContainer = document.querySelector('.video-placeholder');
 
-function loadVideo() {
-  var video = document.createElement('video');
-  // Configura las propiedades del video (fuente, tamaño, controles, etc.)
-  videoContainer.appendChild(video);
-}
+//No cargue el video para vista móvil
+window.addEventListener('DOMContentLoaded', function () {
+  var videoContainer = document.querySelector('.video-placeholder');
+  if (videoContainer) {
+    var video = videoContainer.querySelector('video');
 
-function handleIntersection(entries) {
-  entries.forEach(function(entry) {
-    if (entry.isIntersecting) {
-      loadVideo();
-      observer.unobserve(entry.target);
+    function checkWindowSize() {
+      if (window.innerWidth <= 700) {
+        video.removeAttribute('src');
+      } else {
+        video.setAttribute('src', './images/video-quart.mp4');
+      }
     }
-  });
-}
 
-// Verifica que videoContainer exista antes de crear el observer
-if (videoContainer) {
-  var observer = new IntersectionObserver(handleIntersection);
-  observer.observe(videoContainer);
-}
+    window.addEventListener('resize', checkWindowSize);
+    checkWindowSize();
+  }
+});
+
+//video presentation
+document.addEventListener("DOMContentLoaded", function() {
+  var video = document.querySelector(".video-container video");
+
+  if (video) {
+    var options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1
+    };
+
+    var observer = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var source = entry.target.querySelector("source");
+          var src = source.getAttribute("data-src");
+          source.setAttribute("src", src);
+
+          video.load();
+
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+
+    observer.observe(video);
+  }
+});
