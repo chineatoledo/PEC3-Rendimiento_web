@@ -97,4 +97,3 @@ if (videoContainer) {
   var observer = new IntersectionObserver(handleIntersection);
   observer.observe(videoContainer);
 }
-
