@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="css/texts.css">
     <link rel="stylesheet" href="css/structures.css">
     <link rel="stylesheet" href="css/components.css">
-    <script src="app.js"></script>
 </head>
 <body>
     <header>
@@ -52,7 +51,9 @@
                             (max-width: 600px) 380px,
                             (max-width: 768px) 480px,
                             900px"
-                        src="images/detalle/det-valerosa_gr.webp" alt="Cafetería en Quart de Poblet"
+                        src="images/detalle/det-valerosa_gr.webp"
+                        loading="lazy"
+                        alt="Cafetería en Quart de Poblet"
                         />
                     </div>
                     <h2>Valerosa: una cafetería con encanto que te sorprenderá con su deliciosos cafés</h2>
@@ -63,7 +64,7 @@
                 <hr>
                 <div>
                     <div class="img-detals img-cont">
-                        <img
+                        <img loading="lazy"
                         srcset="
                             images/detalle/det-zamorano_pq.webp 480w,
                             images/detalle/det-zamorano_md.webp 600w,
@@ -72,7 +73,9 @@
                             (max-width: 600px) 380px,
                             (max-width: 768px) 480px,
                             900px"
-                        src="images/detalle/det-zamorano_gr.webp" alt="Almuerzo típico en Quart de Poblet"
+                        src="images/detalle/det-zamorano_gr.webp"
+                        loading="lazy"
+                        alt="Almuerzo típico en Quart de Poblet"
                         />
                     </div>
                     <h2>Bar Zamorano: la mejor opción para disfrutar de bocadillos tradicionales</h2>
@@ -92,7 +95,9 @@
                             (max-width: 600px) 380px,
                             (max-width: 768px) 480px,
                             900px"
-                        src="images/detalle/det-bovaria_gr.webp" alt="Patatas bravas"
+                        src="images/detalle/det-bovaria_gr.webp"
+                        loading="lazy"
+                        alt="Patatas bravas"
                         />
                     </div>
                     <h2>"El secreto detrás de las bravas del Restaurante Bovaria"</h2>
@@ -138,5 +143,6 @@
             </ul>
         </div>
     </footer>
+    <script src="app.js" type="module"></script>
 </body>
 </html>

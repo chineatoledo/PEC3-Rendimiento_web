@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="css/texts.css">
     <link rel="stylesheet" href="css/structures.css">
     <link rel="stylesheet" href="css/components.css">
-    <script src="app.js"></script>
 </head>
 <body>
     <header>
@@ -42,7 +41,7 @@
         <div class="flex-col">
             <div class="mySpace noPadding">
                 <div>
-                    <div class="img-detals img-cont">
+                    <div class="img-detals img-cont lazy">
                         <img
                         srcset="
                             images/detalle/det-comercioLocal_pq.webp 480w,
@@ -52,7 +51,9 @@
                             (max-width: 600px) 380px,
                             (max-width: 768px) 480px,
                             900px"
-                        src="images/detalle/det-comercioLocal_gr.webp" alt="Feria del comercio"
+                        src="images/detalle/det-comercioLocal_gr.webp"
+                        loading="lazy"
+                        alt="Feria del comercio"
                         />
                     </div>
                     <h2>Comercio local</h2>
@@ -100,5 +101,6 @@
             </ul>
         </div>
     </footer>
+    <script src="app.js" type="module"></script>
 </body>
 </html>
