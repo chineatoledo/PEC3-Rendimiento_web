@@ -31,9 +31,48 @@ document.addEventListener("DOMContentLoaded", function () {
       imgs[activeImg].classList.add("active");
     }
 
+    // Cargar imágenes en segundo plano
+    function preloadImages() {
+      imgs.forEach((img) => {
+        const src = img.getAttribute("data-src");
+        if (src) {
+          const newImg = new Image();
+          newImg.src = src;
+          newImg.addEventListener("load", () => {
+            img.src = src;
+          });
+        }
+      });
+    }
+
+    // Aplicar lazy loading a las imágenes
+    function lazyLoadImages() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            const src = img.getAttribute("data-src");
+            if (src) {
+              img.src = src;
+              observer.unobserve(img);
+            }
+          }
+        });
+      });
+
+      imgs.forEach((img) => {
+        observer.observe(img);
+      });
+    }
+
+    setTimeout(preloadImages, 0); // Cargar imágenes en segundo plano al iniciar
+
+    setTimeout(lazyLoadImages, 500); // Aplicar lazy loading después de un pequeño retraso
+
     setInterval(changeImg, intervalTime);
   }
-})
+});
+
 
 // Inicializa video "placeholders"
 var videoContainer = document.querySelector('.video-placeholder');
