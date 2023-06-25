@@ -84,7 +84,7 @@ li a i {
 }
 
 #active {
-  opacity: 60%;
+  border-bottom: solid;
 }
 
 .list-primary {
